@@ -1,15 +1,61 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VA Immobilier</title>
-</head>
-<body>
+<?php get_header( ); ?>
 
-<h1>VA Immobilier</h1>
+    <?php if(is_archive()) : ?>
 
-<img src="assets/images/logo_va_immo.jpg" alt="">
-    
-</body>
-</html>
+        <h2><?php echo esc_html(get_the_category(  )[0]->name) ?></h2>
+
+        <?php else : ?>
+
+            <h2>Accueil</h2>
+
+    <?php endif; ?>
+
+
+        
+        <div class="flex">
+            <section class="trois-quart">
+
+            <?php if(have_posts(  )) : ?>
+
+                <?php  while(have_posts(  )) : the_post(  ); ?>
+
+                    <article class="flex">
+
+                        <div class="image-article quart">
+                           
+
+                            <?php if(has_post_thumbnail(  )) : ?>
+
+                                <?php the_post_thumbnail('small', ['class' => 'fluide'] ); ?>
+
+                            <?php endif ?>
+
+                        </div>
+
+                        <div class="texte-article trois-quart">
+
+                            <h3><?php the_title(  ); ?></h3>
+                            <p><?php the_excerpt(  ); ?> <a href="<?php the_permalink(); ?>">En savoir plus...</a></p>
+
+                        </div>
+                    </article>
+                
+            <?php endwhile; ?>
+
+            <?php endif; ?>
+
+            </section>
+            <section class="quart sidebar">
+                <article>
+                    <h3>Sidebar</h3>
+                    <div class="widget-container">
+                        <!-- widget -->
+                    </div>
+                    <div class="widget-container">
+                        <!-- widget -->
+                    </div>
+                </article>
+            </section>
+        </div>
+
+  <?php get_footer(  ) ?>

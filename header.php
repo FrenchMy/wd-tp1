@@ -2,53 +2,52 @@
 <html lang="fr">
 
 <head>
-    <meta charset="<?php bloginfo( 'charset' ) ?>">
+    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
     <title><?php bloginfo( 'title' ); ?></title>
-
-<!-- Action hook : Placeholder pour le code de wordpress -->
     <?php wp_head(  ); ?>
 </head>
 
-<!-- Injecte des classes au body selon le contexte -->
 <body <?php body_class( ); ?>>
 
-<!-- hook utilisable dans functions.php -->
 <?php wp_body_open(  ); ?>
 
-    <header class="">
-        <div class="">
-            <section>
-                <h1 class=""><a href="<?php echo esc_url( home_url( '/' ) ) ?>"><?php bloginfo( 'title' ); ?></a></h1>
-                <div class="slogan"><?php bloginfo( 'description' ); ?></div>
-            </section>
-            <nav class="">
+    <header>
+        <div class="main-container">
+            <nav>
 
-            <?php 
+<?php 
             
             $args = array(
                 'theme_location' => 'main-menu'
             );
             
             wp_nav_menu($args);
-            ?>
+?>
 
-                <!-- <ul class="menu">
-                    <li><a href="#" class="btn">Accueil</a></li>
-                    <li><a href="#" class="btn">À propos</a></li>
-                    <li><a href="#" class="btn">Contact</a></li>
-                </ul> -->
+                <div class="logo">
+                <a href="<?php echo esc_url( home_url( '/' ) ) ?>"><img src="img/logo_va_immo-blanc.png" alt="" class="fluide"></a>
+                </div>
+                <ul>
+                    <li><a href="a-propos.html">À propos</a></li>
+                    <li><a href="vendre.html">Vendre</a></li>
+                    <li><a href="acheter.html">Acheter</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
             </nav>
+            <div class="reseaux">
+                <div class="facebook"><a href="https://www.facebook.com/victorandrea.perego.5"><i class="fa-brands fa-facebook-square"></i></a></div>
+                <div class="phone"><a href="tel:1418-429-8746"><i class="fa-solid fa-square-phone"></i> 418 429-8746</a></div>
+                <div class="mail"><a href="mailto:va.perego@gmail.com"><i class="fa-solid fa-envelope"></i> va.perego@gmail.com</a></div>
+            </div>
         </div>
+
+
+
     </header>
 
-    <div class="">
-
-            <form action="<?php echo esc_url(home_url( '/' ) ) ?>" method="get">
-                <input type="text" name="s" Placeholder="Rechercher">
-            </form>
-
-    </div>
-
-    <main class="">
+    <main class="main-index">
